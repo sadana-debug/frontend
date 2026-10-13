@@ -1,0 +1,342 @@
+/* Basic settings */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+
+    color: #222;
+
+    background-color: #f5f7fb;
+}
+
+
+/* =========================
+   NAVIGATION
+   ========================= */
+
+.navbar {
+
+    background-color: white;
+
+    padding: 20px 8%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.logo {
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    color: #2563eb;
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    gap: 25px;
+}
+
+
+.nav-links a {
+
+    text-decoration: none;
+
+    color: #333;
+}
+
+
+.nav-links a:hover {
+
+    color: #2563eb;
+}
+
+
+
+/* =========================
+   HERO / HEADING
+   ========================= */
+
+.hero {
+
+    text-align: center;
+
+    padding: 100px 20px;
+
+    background-color: #eaf1ff;
+}
+
+
+.hero h1 {
+
+    font-size: 48px;
+
+    margin-bottom: 20px;
+}
+
+
+.hero p {
+
+    font-size: 18px;
+
+    color: #666;
+
+    max-width: 600px;
+
+    margin: 0 auto 25px;
+}
+
+
+button {
+
+    background-color: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 25px;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+
+button:hover {
+
+    background-color: #174bb5;
+}
+
+
+
+/* =========================
+   SERVICES
+   ========================= */
+
+.services {
+
+    padding: 70px 8%;
+
+    text-align: center;
+}
+
+
+.services h2 {
+
+    font-size: 32px;
+
+    margin-bottom: 15px;
+}
+
+
+.section-text {
+
+    color: #666;
+
+    margin-bottom: 40px;
+}
+
+
+.service-container {
+
+    display: flex;
+
+    gap: 25px;
+
+    justify-content: center;
+}
+
+
+.service-card {
+
+    background-color: white;
+
+    padding: 30px;
+
+    width: 30%;
+
+    border-radius: 10px;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+
+.service-card h3 {
+
+    margin-bottom: 15px;
+}
+
+
+.service-card p {
+
+    color: #666;
+
+    line-height: 1.6;
+}
+
+
+
+/* =========================
+   ABOUT + MAP
+   ========================= */
+
+.about-map {
+
+    display: flex;
+
+    gap: 40px;
+
+    padding: 70px 8%;
+
+    background-color: white;
+}
+
+
+.about {
+
+    width: 50%;
+}
+
+
+.about h2 {
+
+    margin-bottom: 20px;
+}
+
+
+.about p {
+
+    color: #666;
+
+    line-height: 1.7;
+
+    margin-bottom: 15px;
+}
+
+
+.map {
+
+    width: 50%;
+}
+
+
+.map h2 {
+
+    margin-bottom: 20px;
+}
+
+
+.map-box {
+
+    height: 250px;
+
+    background-color: #e5e7eb;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 10px;
+
+    color: #555;
+}
+
+
+
+/* =========================
+   CONTACT
+   ========================= */
+
+.contact {
+
+    padding: 70px 20px;
+
+    text-align: center;
+}
+
+
+.contact h2 {
+
+    font-size: 32px;
+
+    margin-bottom: 15px;
+}
+
+
+.contact > p {
+
+    color: #666;
+
+    margin-bottom: 30px;
+}
+
+
+form {
+
+    max-width: 500px;
+
+    margin: auto;
+}
+
+
+input,
+textarea {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+}
+
+
+textarea {
+
+    height: 120px;
+
+    resize: none;
+}
+
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+
+    background-color: #222;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 25px;
+}
