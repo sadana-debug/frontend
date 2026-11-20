@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 1 - Product Showcase Card</title>
+  <style>
+    /* 1. Box Model Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      padding: 2rem 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* 2. MOBILE BASE STYLES (default = 1 column stack) */
+    .product-card {
+      width: 100%;
+      max-width: 900px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr;          /* 1 column on mobile */
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+    }
+
+    /* Image area */
+    .product-image {
+      position: relative;
+      overflow: hidden;                    /* keeps the zoom inside the box */
+      height: 240px;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;     /* smooth zoom */
+    }
+
+    .product-image:hover img {
+      transform: scale(1.04);              /* hover zoom */
+    }
+
+    .badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: #ffffff;
+      color: #0284c7;
+      border: 1px solid #0284c7;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+    }
+
+    /* Details container: Flexbox column */
+    .product-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;      /* spreads content top-to-bottom */
+      gap: 1.25rem;
+      padding: 1.5rem;
+    }
+
+    /* Category / rating row */
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .category {
+      font-size: 0.75rem;
+      color: #64748b;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+    }
+
+    .rating {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #f59e0b;
+    }
+
+    .product-title {
+      font-size: 1.4rem;
+      margin: 0.75rem 0 0.5rem;
+    }
+
+    .product-desc {
+      color: #64748b;
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+
+    .features-label {
+      font-size: 0.75rem;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 1rem;
+    }
+
+    /* Feature tags wrap onto next line when needed */
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+      list-style: none;
+    }
+
+    .features li {
+      font-size: 0.8rem;
+      background: #e0f2fe;
+      color: #0369a1;
+      border: 1px solid #0284c7;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+    }
+
+    /* Bottom pricing / button shelf */
+    .price-shelf {
+      display: flex;
+      flex-direction: column;              /* mobile: price above button */
+      gap: 1rem;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 1rem;
+    }
+
+    .price {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .tax {
+      font-size: 0.75rem;
+      color: #64748b;
+    }
+
+    .btn {
+      width: 100%;                         /* full-width button on mobile */
+      background: #0284c7;
+      color: #ffffff;
+      border: none;
+      padding: 0.85rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.15s ease, background-color 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #0369a1;
+    }
+
+    .btn:active {
+      transform: scale(0.96);              /* press-down effect */
+    }
+
+    /* 3. DESKTOP BREAKPOINT */
+    @media (min-width: 768px) {
+      .product-card {
+        grid-template-columns: 1fr 1fr;    /* image left, details right */
+      }
+
+      .product-image {
+        height: auto;
+        min-height: 380px;
+      }
+
+      .price-shelf {
+        flex-direction: row;
+        justify-content: space-between;    /* price left, button right */
+        align-items: center;
+      }
+
+      .btn {
+        width: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <article class="product-card">
+
+    <figure class="product-image">
+      <span class="badge">POPULAR</span>
+      <!-- Product illustration (inline SVG, works offline) -->
+      <img alt="Desk workspace mat on a clean desk"
+           src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23e0f2fe'/%3E%3Cstop offset='1' stop-color='%23bae6fd'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23g)'/%3E%3Crect x='50' y='150' width='300' height='140' rx='16' fill='%23334155'/%3E%3Crect x='60' y='160' width='280' height='120' rx='10' fill='none' stroke='%2394a3b8' stroke-dasharray='6 5'/%3E%3Crect x='150' y='190' width='110' height='45' rx='6' fill='%23f8fafc'/%3E%3Crect x='275' y='205' width='30' height='45' rx='12' fill='%23e2e8f0'/%3E%3Ccircle cx='100' cy='215' r='18' fill='%230284c7'/%3E%3C/svg%3E">
+    </figure>
+
+    <section class="product-details">
+      <div>
+        <div class="meta-row">
+          <span class="category">Accessories</span>
+          <span class="rating">● 4.9 ★</span>
+        </div>
+
+        <h1 class="product-title">Desk Workspace Mat</h1>
+        <p class="product-desc">
+          Premium vegan-leather desk mat with a soft micro-fibre base.
+          Water resistant, anti-slip and easy to clean.
+        </p>
+
+        <p class="features-label">Features</p>
+        <ul class="features">
+          <li>Water-resistant</li>
+          <li>Anti-slip base</li>
+          <li>90 × 40 cm</li>
+          <li>Stitched edges</li>
+        </ul>
+      </div>
+
+      <div class="price-shelf">
+        <div>
+          <p class="price">₹1,499</p>
+          <p class="tax">Tax included</p>
+        </div>
+        <button class="btn" type="button">Add to Bag</button>
+      </div>
+    </section>
+
+  </article>
+
+</body>
+</html>
